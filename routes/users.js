@@ -1,9 +1,10 @@
-const express =require('express')
-const router =express.Router
-app.get('/users',(req,res)=>{
+const express = require('express')
+const router =express.Router()
+router.get('/',(req,res)=>{
 res.send ("User list")
 })
 
-app.get('/users/new',(req,res)=>{
+router.get('/new',(req,res)=>{
 res.send ("User New form")
 })
+module.exports = router;
