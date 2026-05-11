@@ -5,11 +5,23 @@ res.send ("User list")
 })
 
 router.get('/new',(req,res)=>{
-res.send ("User New form")
+// res.send ("User New form")
+res.render('users/new',{firstName:'Test'})
 })
 
 router.post('/',(req,res)=>{
-    res.send ('Create User')
+    // res.send ('Create User')
+    const isValid= true
+    if (isValid){
+        users.push({firstName:req.body.firstName})
+        res.redirect(`/users/${users.length-1}`)
+    }else{
+        console.log('Error')
+        res.render('users/new',{firstName:req.body.firstName})
+    }
+    
+    console.log(req.body.firstName)
+    res.send ('hi')
 })
 router
 .route("/:id")
